@@ -1,18 +1,55 @@
 <svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-  <!-- Abstract flowing shapes logo -->
+  <!-- Complete BiomixX Logo with flowing ascending shapes -->
   <defs>
     <linearGradient id="logoGradient" x1="0%" y1="100%" x2="0%" y2="0%">
       <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="shape1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="shape2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="shape3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1" />
     </linearGradient>
   </defs>
   
-  <!-- Flowing ascending shapes -->
-  <path d="M15 45 Q25 35 20 25 Q15 15 25 10 Q35 5 30 0" stroke="url(#logoGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M20 50 Q30 40 25 30 Q20 20 30 15 Q40 10 35 5" stroke="url(#logoGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M25 55 Q35 45 30 35 Q25 25 35 20 Q45 15 40 10" stroke="url(#logoGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Main flowing ascending shapes - more complete and detailed -->
+  <!-- First shape - bottom left -->
+  <path d="M8 50 Q18 42 15 32 Q12 22 20 18 Q28 14 25 8 Q22 2 30 0" 
+        stroke="url(#shape1)" stroke-width="4" fill="none" stroke-linecap="round"/>
   
-  <!-- Sharp triangular point -->
-  <polygon points="35,0 40,5 30,5" fill="#60a5fa"/>
+  <!-- Second shape - middle -->
+  <path d="M12 55 Q22 47 19 37 Q16 27 24 23 Q32 19 29 13 Q26 7 34 5" 
+        stroke="url(#shape2)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  
+  <!-- Third shape - top right -->
+  <path d="M16 60 Q26 52 23 42 Q20 32 28 28 Q36 24 33 18 Q30 12 38 10" 
+        stroke="url(#shape3)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  
+  <!-- Additional flowing elements for completeness -->
+  <path d="M20 55 Q30 47 27 37 Q24 27 32 23 Q40 19 37 13 Q34 7 42 5" 
+        stroke="url(#shape3)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Sharp crystalline triangular point at the top -->
+  <polygon points="35,0 42,8 28,8" fill="#93c5fd" stroke="#60a5fa" stroke-width="1"/>
+  
+  <!-- Additional crystalline elements -->
+  <polygon points="30,5 35,10 25,10" fill="#60a5fa" opacity="0.8"/>
+  <polygon points="25,10 30,15 20,15" fill="#10b981" opacity="0.6"/>
+  
+  <!-- Subtle connecting lines for flow -->
+  <path d="M15 45 Q25 35 20 25" stroke="#2563eb" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M20 50 Q30 40 25 30" stroke="#10b981" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M25 55 Q35 45 30 35" stroke="#60a5fa" stroke-width="1" fill="none" opacity="0.3"/>
 </svg>
