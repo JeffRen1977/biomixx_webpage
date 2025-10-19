@@ -1,55 +1,72 @@
 <svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-  <!-- Complete BiomixX Logo with flowing ascending shapes -->
+  <!-- Exact BiomixX Logo - Flowing Ribbon Design -->
   <defs>
-    <linearGradient id="logoGradient" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="40%" style="stop-color:#10b981;stop-opacity:1" />
-      <stop offset="80%" style="stop-color:#60a5fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1" />
+    <!-- Deep rich blue gradient -->
+    <linearGradient id="deepBlue" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="shape1" x1="0%" y1="100%" x2="100%" y2="0%">
+    <!-- Medium blue gradient -->
+    <linearGradient id="mediumBlue" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="shape2" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="shape3" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1" />
+    <!-- Bright teal gradient -->
+    <linearGradient id="brightTeal" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0d9488;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#14b8a6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5eead4;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Light cyan gradient -->
+    <linearGradient id="lightCyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#67e8f9;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Very light blue gradient -->
+    <linearGradient id="veryLightBlue" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#38bdf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7dd3fc;stop-opacity:1" />
     </linearGradient>
   </defs>
   
-  <!-- Main flowing ascending shapes - more complete and detailed -->
-  <!-- First shape - bottom left -->
-  <path d="M8 50 Q18 42 15 32 Q12 22 20 18 Q28 14 25 8 Q22 2 30 0" 
-        stroke="url(#shape1)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Lower Section - Wide ribbon base (deep blue) -->
+  <path d="M15 55 Q25 50 Q35 40 Q30 30 Q35 20 Q30 15 Q35 10" 
+        fill="url(#deepBlue)" stroke="none"/>
   
-  <!-- Second shape - middle -->
-  <path d="M12 55 Q22 47 19 37 Q16 27 24 23 Q32 19 29 13 Q26 7 34 5" 
-        stroke="url(#shape2)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Middle Section - Intertwining ribbon (medium blue to teal) -->
+  <path d="M20 52 Q30 47 Q40 37 Q35 27 Q40 17 Q35 12 Q40 7" 
+        fill="url(#mediumBlue)" stroke="none"/>
   
-  <!-- Third shape - top right -->
-  <path d="M16 60 Q26 52 23 42 Q20 32 28 28 Q36 24 33 18 Q30 12 38 10" 
-        stroke="url(#shape3)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Upper Section - Bright teal ribbon -->
+  <path d="M25 48 Q35 43 Q45 33 Q40 23 Q45 13 Q40 8 Q45 3" 
+        fill="url(#brightTeal)" stroke="none"/>
   
-  <!-- Additional flowing elements for completeness -->
-  <path d="M20 55 Q30 47 27 37 Q24 27 32 23 Q40 19 37 13 Q34 7 42 5" 
-        stroke="url(#shape3)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <!-- Light cyan ribbon -->
+  <path d="M30 45 Q40 40 Q50 30 Q45 20 Q50 10 Q45 5 Q50 0" 
+        fill="url(#lightCyan)" stroke="none"/>
   
-  <!-- Sharp crystalline triangular point at the top -->
-  <polygon points="35,0 42,8 28,8" fill="#93c5fd" stroke="#60a5fa" stroke-width="1"/>
+  <!-- Fragmented top elements - rectangular/parallelogram pieces -->
+  <!-- First fragment -->
+  <path d="M35 15 L45 10 L50 15 L40 20 Z" 
+        fill="url(#veryLightBlue)" stroke="none"/>
   
-  <!-- Additional crystalline elements -->
-  <polygon points="30,5 35,10 25,10" fill="#60a5fa" opacity="0.8"/>
-  <polygon points="25,10 30,15 20,15" fill="#10b981" opacity="0.6"/>
+  <!-- Second fragment -->
+  <path d="M40 10 L50 5 L55 10 L45 15 Z" 
+        fill="url(#veryLightBlue)" stroke="none"/>
   
-  <!-- Subtle connecting lines for flow -->
-  <path d="M15 45 Q25 35 20 25" stroke="#2563eb" stroke-width="1" fill="none" opacity="0.3"/>
-  <path d="M20 50 Q30 40 25 30" stroke="#10b981" stroke-width="1" fill="none" opacity="0.3"/>
-  <path d="M25 55 Q35 45 30 35" stroke="#60a5fa" stroke-width="1" fill="none" opacity="0.3"/>
+  <!-- Third fragment -->
+  <path d="M45 5 L55 0 L60 5 L50 10 Z" 
+        fill="url(#veryLightBlue)" stroke="none"/>
+  
+  <!-- Fourth fragment -->
+  <path d="M50 0 L60 -5 L65 0 L55 5 Z" 
+        fill="url(#veryLightBlue)" stroke="none"/>
 </svg>
