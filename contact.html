@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience BiomixX - Contact & Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>BiomixX</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="platform.html" class="nav-link">Platform</a></li>
+                <li><a href="use-cases.html" class="nav-link">Use Cases</a></li>
+                <li><a href="technology.html" class="nav-link">Technology</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="investors.html" class="nav-link">Investors</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Experience BiomixX</h1>
+            <p class="page-subtitle">Request a demo and see how BiomixX transforms your data into biological insights</p>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="two-column">
+                <div class="demo-info">
+                    <h2>Request a Demo</h2>
+                    <p>See how BiomixX transforms your data into biological insights in real-time.</p>
+                    
+                    <h3>What to Expect:</h3>
+                    <ul class="demo-expectations">
+                        <li>30-minute personalized demonstration</li>
+                        <li>Analysis of your own data (optional)</li>
+                        <li>Discussion of your specific research needs</li>
+                        <li>Q&A with our team</li>
+                    </ul>
+                </div>
+                
+                <div class="demo-form-container">
+                    <form class="demo-form" id="demoForm">
+                        <h3>Demo Request Form</h3>
+                        
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="institution">Institution/Company *</label>
+                            <input type="text" id="institution" name="institution" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="researchArea">Research Area *</label>
+                            <select id="researchArea" name="researchArea" required>
+                                <option value="">Select your research area</option>
+                                <option value="drug-discovery">Drug Discovery</option>
+                                <option value="biomarker-research">Biomarker Research</option>
+                                <option value="disease-mechanism">Disease Mechanism Studies</option>
+                                <option value="clinical-research">Clinical Research</option>
+                                <option value="academic-research">Academic Research</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="omicsTechnology">Primary Omics Technology</label>
+                            <select id="omicsTechnology" name="omicsTechnology">
+                                <option value="">Select primary technology</option>
+                                <option value="proteomics">Proteomics</option>
+                                <option value="metabolomics">Metabolomics</option>
+                                <option value="transcriptomics">Transcriptomics</option>
+                                <option value="genomics">Genomics</option>
+                                <option value="multi-omics">Multi-Omics</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="challenges">Brief description of your analysis challenges</label>
+                            <textarea id="challenges" name="challenges" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred demo date/time</label>
+                            <input type="text" id="preferredDate" name="preferredDate" placeholder="e.g., Next Tuesday 2 PM EST">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">Request Demo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>General Inquiries</h3>
+                    <p>info@biomixx.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🤝</div>
+                    <h3>Partnerships</h3>
+                    <p>partnerships@biomixx.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🆘</div>
+                    <h3>Support</h3>
+                    <p>support@biomixx.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stay Updated -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2 class="section-title">Stay Updated</h2>
+            <p class="section-subtitle">Subscribe to receive updates on new features, multi-omics capabilities, and the latest in AI-powered bioinformatics.</p>
+            
+            <form class="newsletter-form" id="newsletterForm">
+                <div class="newsletter-input-group">
+                    <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How long does a demo take?</h3>
+                    <p>Our demos typically last 30 minutes and can be customized to focus on your specific research needs and use cases.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I bring my own data?</h3>
+                    <p>Yes! We encourage you to bring your own data for a more personalized demonstration. We'll analyze it in real-time during the demo.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is BiomixX suitable for my research area?</h3>
+                    <p>BiomixX is designed for researchers across all life sciences disciplines. We currently support proteomics and are expanding to other omics technologies.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How quickly can I get started?</h3>
+                    <p>After your demo, you can typically get started within 24-48 hours. We provide onboarding support to ensure you get the most out of the platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BiomixX</h3>
+                    <p>AI-powered bioinformatics for life sciences discovery</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="platform.html">Platform</a></li>
+                        <li><a href="use-cases.html">Use Cases</a></li>
+                        <li><a href="technology.html">Technology</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="investors.html">Investors</a></li>
+                        <li><a href="schedule.html">Schedule Demo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BiomixX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
