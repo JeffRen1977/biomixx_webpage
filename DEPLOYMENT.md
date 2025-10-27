@@ -42,16 +42,16 @@ Enter your credentials:
 ### Step 3: Create S3 Bucket
 
 ```bash
-# Replace 'biomixx-website' with your desired bucket name
-aws s3 mb s3://biomixx-website
+# Replace 'biomixx.net' with your desired bucket name
+aws s3 mb s3://biomixx.net
 ```
 
-**Note:** Bucket names must be globally unique. If the name is taken, try variations like `biomixx-website-2024` or `biomixx-investor-site`.
+**Note:** Bucket names must be globally unique. If the name is taken, try variations like `biomixx.net-2024` or `biomixx-investor-site`.
 
 ### Step 4: Configure Bucket for Static Website Hosting
 
 ```bash
-aws s3 website s3://biomixx-website --index-document index.html --error-document index.html
+aws s3 website s3://biomixx.net --index-document index.html --error-document index.html
 ```
 
 ### Step 5: Upload Website Files
@@ -60,7 +60,7 @@ Navigate to your website directory and upload files:
 
 ```bash
 # From your BioMixx_Webpage directory
-aws s3 sync . s3://biomixx-website --exclude "*.md" --exclude ".git/*" --exclude "README.md"
+aws s3 sync . s3://biomixx.net --exclude "*.md" --exclude ".git/*" --exclude "README.md"
 ```
 
 ### Step 6: Set Bucket Policy for Public Access
@@ -76,7 +76,7 @@ Create a file called `bucket-policy.json`:
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::biomixx-website/*"
+            "Resource": "arn:aws:s3:::biomixx.net/*"
         }
     ]
 }
@@ -85,14 +85,14 @@ Create a file called `bucket-policy.json`:
 Apply the policy:
 
 ```bash
-aws s3api put-bucket-policy --bucket biomixx-website --policy file://bucket-policy.json
+aws s3api put-bucket-policy --bucket biomixx.net --policy file://bucket-policy.json
 ```
 
 ### Step 7: Access Your Website
 
 Your website will be available at:
 ```
-http://biomixx-website.s3-website-us-east-1.amazonaws.com
+http://biomixx.net.s3-website-us-east-1.amazonaws.com
 ```
 
 Replace `us-east-1` with your actual region.
@@ -132,7 +132,7 @@ Replace `us-east-1` with your actual region.
 2. Scroll to "Bucket policy"
 3. Click "Edit"
 4. Add the policy from Step 6 above
-5. Replace `biomixx-website` with your bucket name
+5. Replace `biomixx.net` with your bucket name
 6. Click "Save changes"
 
 ## Method 3: Using AWS CloudFormation (Advanced)
@@ -147,7 +147,7 @@ Parameters:
   BucketName:
     Type: String
     Description: Name for the S3 bucket
-    Default: biomixx-website
+    Default: biomixx.net
 
 Resources:
   WebsiteBucket:
@@ -185,7 +185,7 @@ Outputs:
 Deploy with:
 
 ```bash
-aws cloudformation create-stack --stack-name biomixx-website --template-body file://website-stack.yaml --parameters ParameterKey=BucketName,ParameterValue=biomixx-website
+aws cloudformation create-stack --stack-name biomixx.net --template-body file://website-stack.yaml --parameters ParameterKey=BucketName,ParameterValue=biomixx.net
 ```
 
 ## Setting Up Custom Domain (Optional)
@@ -266,16 +266,16 @@ python -m http.server 8000
 
 ```bash
 # Check bucket policy
-aws s3api get-bucket-policy --bucket biomixx-website
+aws s3api get-bucket-policy --bucket biomixx.net
 
 # List bucket contents
-aws s3 ls s3://biomixx-website --recursive
+aws s3 ls s3://biomixx.net --recursive
 
 # Sync specific files only
-aws s3 sync . s3://biomixx-website --exclude "*" --include "*.html" --include "*.css" --include "*.js"
+aws s3 sync . s3://biomixx.net --exclude "*" --include "*.html" --include "*.css" --include "*.js"
 
 # Delete all files
-aws s3 rm s3://biomixx-website --recursive
+aws s3 rm s3://biomixx.net --recursive
 ```
 
 ## Cost Optimization

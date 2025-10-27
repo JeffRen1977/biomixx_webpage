@@ -54,14 +54,14 @@ Follow the prompts:
 - **Set up and deploy?** → Yes
 - **Which scope?** → Choose your account
 - **Link to existing project?** → No (for first deployment)
-- **What's your project's name?** → `biomixx-website` (or your preferred name)
+- **What's your project's name?** → `biomixx.netsite` (or your preferred name)
 - **In which directory is your code located?** → `./` (current directory)
 
 ### Step 4: Access Your Website
 
 After deployment, you'll get a URL like:
 ```
-https://biomixx-website.vercel.app
+https://biomixx.netsite.vercel.app
 ```
 
 ## Method 2: Deploy via Vercel Dashboard (Web Interface)
@@ -83,7 +83,7 @@ https://biomixx-website.vercel.app
 
 ### Step 3: Configure Project
 
-1. **Project Name**: `biomixx-website`
+1. **Project Name**: `biomixx.netsite`
 2. **Framework Preset**: Other (since it's vanilla HTML/CSS/JS)
 3. **Root Directory**: Leave as default
 4. **Build Command**: Leave empty (no build needed)
@@ -106,7 +106,7 @@ git init
 git add .
 git commit -m "Initial BiomixX website"
 git branch -M main
-git remote add origin https://github.com/yourusername/biomixx-website.git
+git remote add origin https://github.com/yourusername/biomixx.netsite.git
 git push -u origin main
 ```
 
@@ -318,6 +318,6 @@ vercel
 vercel domains add your-domain.com
 ```
 
-Your BiomixX website will be live at `https://biomixx-website.vercel.app` in minutes!
+Your BiomixX website will be live at `https://biomixx.netsite.vercel.app` in minutes!
 
 Vercel is perfect for your investor presentations - fast, reliable, and professional. The automatic HTTPS and global CDN ensure your website loads quickly worldwide.

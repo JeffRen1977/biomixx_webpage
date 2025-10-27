@@ -233,8 +233,8 @@ CMD ["nginx", "-g", "daemon off;"]
 
 Run:
 ```bash
-docker build -t biomixx-website .
-docker run -p 8080:80 biomixx-website
+docker build -t biomixx.netsite .
+docker run -p 8080:80 biomixx.netsite
 ```
 
 ## Testing Script
