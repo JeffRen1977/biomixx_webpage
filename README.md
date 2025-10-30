@@ -19,6 +19,24 @@ BioMixx_Webpage/
 └── README.md           # This file
 ```
 
+## Documentation
+
+- **Deployment**
+  - [Quick Deployment Guide](docs/deployment/QUICK_DEPLOYMENT_GUIDE.md)
+  - [Deployment Overview](docs/deployment/DEPLOYMENT.md)
+  - [AWS S3 Deployment](docs/deployment/AWS_S3_DEPLOYMENT.md)
+  - [Vercel Deployment](docs/deployment/VERCEL_DEPLOYMENT.md)
+- **Setup**
+  - [What You Need](docs/setup/WHAT_YOU_NEED.md)
+  - [Use Existing AWS Keys](docs/setup/USE_EXISTING_KEYS.md)
+  - [Find IAM Credentials](docs/setup/FIND_IAM_CREDENTIALS.md)
+  - **Email & Newsletter**
+    - [Email Setup](docs/setup/email-newsletter/EMAIL_SETUP.md)
+    - [Mailing List Setup](docs/setup/email-newsletter/MAILING_LIST_SETUP.md)
+    - [Newsletter Solution](docs/setup/email-newsletter/NEWSLETTER_SOLUTION.md)
+- **Local Development**
+  - [Local Testing](docs/local/LOCAL_TESTING.md)
+
 ## Pages Overview
 
 ### 1. Home Page (`index.html`)
