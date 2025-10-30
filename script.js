@@ -94,9 +94,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Send to FormSpree
+            // SIMPLE METHOD: Send to FormSpree and manually add to mailing list
+            // This sends you an email, and you can add subscribers to Mailchimp/etc manually
             const formData = new FormData(this);
             formData.append('_subject', 'Newsletter Subscription - BiomixX');
+            formData.append('_template', 'plain');
+            
             const formAction = 'https://formspree.io/f/xanlbqre';
             
             fetch(formAction, {
@@ -109,15 +112,49 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
-                    showMessage('Thank you for subscribing!', 'success');
+                    showMessage('Thank you for subscribing! We will add you to our mailing list.', 'success');
                     this.reset();
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error('Subscription failed');
                 }
             })
             .catch(error => {
-                showMessage('There was an error. Please try again.', 'error');
+                showMessage('There was an error. Please try again later.', 'error');
             });
+            
+            // OPTION 2: Use Mailchimp API (requires setup - see MAILING_LIST_SETUP.md)
+            // Uncomment below and configure API credentials if you want automatic mailing list integration
+            /*
+            const MAILCHIMP_API_KEY = 'YOUR_MAILCHIMP_API_KEY';
+            const MAILCHIMP_AUDIENCE_ID = 'YOUR_AUDIENCE_ID';
+            const email = emailField.value.trim();
+            const mailchimpUrl = `https://us2.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`;
+            
+            fetch(mailchimpUrl, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${MAILCHIMP_API_KEY}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email_address: email,
+                    status: 'subscribed'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (response.ok) {
+                    showMessage('Thank you for subscribing!', 'success');
+                    this.reset();
+                } else if (data.title === 'Member Exists') {
+                    showMessage('You are already subscribed!', 'success');
+                    this.reset();
+                }
+            })
+            .catch(error => {
+                showMessage('Subscription failed. Please try again.', 'error');
+            });
+            */
         });
     }
     
