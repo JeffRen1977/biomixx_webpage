@@ -1,0 +1,71 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch: {}
+
+env:
+  # REQUIRED: Set this as a repository variable or replace with your bucket
+  S3_BUCKET: ${{ vars.S3_BUCKET }}
+  # OPTIONAL: Set as repository variable if using CloudFront
+  CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+
+permissions:
+  id-token: write   # for OIDC
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate configuration
+        run: |
+          if [ -z "${S3_BUCKET}" ]; then
+            echo "S3_BUCKET is not set. Define repository variable 'S3_BUCKET' or hardcode the bucket name in this workflow." 1>&2
+            exit 1
+          fi
+
+      # Prefer OIDC (no long-lived secrets). Provide AWS role to assume via repo variable or secret
+      - name: Configure AWS (OIDC)
+        if: ${{ vars.AWS_ROLE_TO_ASSUME != '' || secrets.AWS_ROLE_TO_ASSUME != '' }}
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME || secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+
+      # Fallback to access keys if OIDC role not provided
+      - name: Configure AWS (Access Keys)
+        if: ${{ !(vars.AWS_ROLE_TO_ASSUME != '' || secrets.AWS_ROLE_TO_ASSUME != '') }}
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync . s3://"${S3_BUCKET}" \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "*.md" \
+            --exclude "README*" \
+            --exclude "docs/*"
+
+      - name: Set S3 website index and error documents (idempotent)
+        continue-on-error: true
+        run: |
+          aws s3 website s3://"${S3_BUCKET}" --index-document index.html --error-document index.html
+
+      - name: Invalidate CloudFront cache (optional)
+        if: ${{ env.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${CLOUDFRONT_DISTRIBUTION_ID}" \
+            --paths "/*"
+
+
