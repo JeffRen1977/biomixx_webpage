@@ -32,3 +32,5 @@ Ask your friend (AWS account owner) to:
 ### Solution 4: Check for Existing Configured Keys
 Let me create a script to check if you already have AWS configured:
 
+
+
