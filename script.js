@@ -32,15 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission handling
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
+    // Form submission handling with FormSpree
+    const demoForm = document.getElementById('demoForm');
+    const newsletterForm = document.getElementById('newsletterForm');
+    
+    if (demoForm) {
+        demoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
             
             // Simple validation
             let isValid = true;
@@ -55,14 +53,73 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (isValid) {
-                // Show success message
-                showMessage('Thank you for your submission! We will get back to you soon.', 'success');
-                this.reset();
+                // Send to FormSpree
+                const formData = new FormData(this);
+                formData.append('_subject', 'New Demo Request from BiomixX Website');
+                const formAction = 'https://formspree.io/f/xanlbqre';
+                
+                fetch(formAction, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        showMessage('Thank you for your submission! We will get back to you soon.', 'success');
+                        this.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    showMessage('There was an error submitting your form. Please try again or contact us directly.', 'error');
+                });
             } else {
                 showMessage('Please fill in all required fields.', 'error');
             }
         });
-    });
+    }
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const emailField = this.querySelector('[type="email"]');
+            if (!emailField.value.trim()) {
+                showMessage('Please enter your email address.', 'error');
+                return;
+            }
+            
+            // Send to FormSpree
+            const formData = new FormData(this);
+            formData.append('_subject', 'Newsletter Subscription - BiomixX');
+            const formAction = 'https://formspree.io/f/xanlbqre';
+            
+            fetch(formAction, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    showMessage('Thank you for subscribing!', 'success');
+                    this.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                showMessage('There was an error. Please try again.', 'error');
+            });
+        });
+    }
     
     // Message display function
     function showMessage(text, type) {
